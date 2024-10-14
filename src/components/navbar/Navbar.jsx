@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className="menu-icons" onClick={toggleMenu}>
                 <i className={isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
             </div>
-            <ul className={isOpen ? "nav-menu active d-flex justify-content-end p-2 bg-navbar" : "nav-menu d-flex justify-content-end p-2 bg-navbar"}>
+            <ul className={isOpen ? "nav-menu active p-2 bg-navbar" : "nav-menu p-2 bg-navbar"}>
                 {/* <ul className='d-flex justify-content-end p-2 bg-navbar'> */}
                 <li className="text px-3 py-1 mx-1">
                     <Link to='/' className={currentPage === '/' ? 'nav-link active' : 'nav-link'}>Home</Link>
