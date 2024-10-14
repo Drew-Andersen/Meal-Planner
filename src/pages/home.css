@@ -1,0 +1,10 @@
+.btn-div {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 100px auto;
+}
+
+.btn {
+    border: 1px solid  black;
+    font-size: 25px;
+}
