@@ -78,9 +78,11 @@ li:hover {
     }
 
     .nav-menu.active {
+        display: inline-block;
         left: 0;
         opacity: 1;
-        z-index: -1;
+        z-index: 99;
+        background-color: white;
     }
 
     .nav-link {
