@@ -6,7 +6,7 @@ import './login.css';
 
 export default function Login () {
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-    const [validated] = useState(false);
+    // const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
     const handleInputChange = (e) => {
@@ -70,7 +70,7 @@ export default function Login () {
 
                         <div className="text-center">
                             <p className="text-center mb-0 mt-3">Don't have an account?</p>
-                            <Link to='/signup'><Button className='btn btn-primary border w-50 rounded text-decoration-none'>Sign-up</Button></Link>
+                            <Link to='/signup'><Button className='btn btn-primary border w-50 rounded text-decoration-none'>Sign-up</Button>{' '}</Link>
                         </div>
                     </Form>
                 </div>
