@@ -1,0 +1,16 @@
+.form-div {
+    width: 450px;
+    border: 1px solid gray;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 600px) {
+    .form-div {
+        width: 350px;
+    }
+}
