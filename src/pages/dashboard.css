@@ -10,3 +10,22 @@
     max-width: 700px;
     margin: auto;
 }
+
+.icon {
+    height: 175px;
+    width: 175px;
+    max-width: 100%;
+    border-radius: 50%;
+    font-size: 55px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.CircularProgressbar {
+    width: 175px;
+    height: 175px;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: red;
+}
