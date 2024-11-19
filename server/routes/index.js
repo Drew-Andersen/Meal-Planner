@@ -4,9 +4,9 @@ const path = require('path');
 
 router.use('/api', apiRoutes);
 
-//serve up the react front-end in production
+// serve up react front-end in production
 router.use((req, res) => {
-    res.sendFile(path.join(__dirname, '../../client,index.html'));
-});
+    res.sendFile(path.join(__dirname, '../../client/index.html'));
+  });
 
-nodule.exports = router;
+module.exports = router;

@@ -16,22 +16,27 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
+        joined: {
+            type: Date,
+            default: Date.now(),
+            required: true,
+        }
     }
 );
 
-// middleware to create password
-userSchema.pre('save', async function(next){
-    if(this.isNew || this.isModified('password')){
-        this.password = await bcrypt.hash(this.password, 10);
+userSchema.pre('save', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+        const saltRounds = 10;
+        this.password = await bcrypt.hash(this.password, saltRounds);
     }
 
     next();
-});
+})
 
-//check for entered password matches the saved password
-userSchema.methods.isCorrectPassword = async function(password){
+userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
 const User = mongoose.model('User', userSchema);
+
 module.exports = User;
