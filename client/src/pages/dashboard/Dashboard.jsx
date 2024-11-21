@@ -56,7 +56,7 @@ export default function Dashboard() {
                     <div className="card px-2 py-2 col-5">
                         <h3 className="macro-div">Macros</h3>
                         <div className="macro-progress-bar text-center d-flex">
-                            {/* Insert a Circle progress bar showing remaining calories */}
+                            {/* Circle progress bar showing Carbs */}
                             <div className="icon">
                                 <p className='label'><strong>Carbohydrates</strong></p>
                                 <CircularProgressbarWithChildren
@@ -68,6 +68,7 @@ export default function Dashboard() {
                                     </div>
                                 </CircularProgressbarWithChildren>
                             </div>
+                            {/* Circle progress bar showing Fats */}
                             <div className="icon">
                                 <p className='label'><strong>Fats</strong></p>
                                 <CircularProgressbarWithChildren
@@ -79,6 +80,7 @@ export default function Dashboard() {
                                     </div>
                                 </CircularProgressbarWithChildren>
                             </div>
+                            {/* Circle progress bar showing Protein */}
                             <div className="icon">
                                 <p className='label'><strong>Protein</strong></p>
                                 <CircularProgressbarWithChildren
