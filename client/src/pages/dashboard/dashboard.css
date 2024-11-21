@@ -1,3 +1,13 @@
+.buffer {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.goals {
+    display: flex;
+    justify-content: space-around;
+}
+
 .calorie-div {
     margin-bottom: 0px;
 }
@@ -8,12 +18,13 @@
 
 .card {
     max-width: 700px;
+    height: 300px;
     margin: auto;
 }
 
 .icon {
-    height: 175px;
-    width: 175px;
+    height: 150px;
+    width: 150px;
     max-width: 100%;
     border-radius: 50%;
     font-size: 55px;
@@ -21,9 +32,13 @@
     margin: 20px auto;
 }
 
+.label {
+    font-size: 15px;
+}
+
 .CircularProgressbar {
-    width: 175px;
-    height: 175px;
+    width: 150px;
+    height: 150px;
 }
 
 .CircularProgressbar .CircularProgressbar-path {

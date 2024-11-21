@@ -21,6 +21,16 @@
     z-index: 99;
 }
 
+.logo-div {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 45px;
+    width: 45px;
+}
+
 ul {
     list-style-type: none;
 }
