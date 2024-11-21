@@ -1,22 +1,59 @@
 // Imports
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../../utils/API';
+import Auth from '../../utils/auth';
 import './login.css';
 
 export default function Login () {
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
     // const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUserFormData({ ...userFormData, [name]: value });
     };
 
-    // const handleFormSubmit = async (e) => {
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
 
-    // }
+        if (!userFormData.email || !userFormData.password) {
+            setAlertMessage('Please enter both email and password');
+            setShowAlert(true);
+            return;
+        }
+
+        try {
+            const response = await loginUser(userFormData);
+
+            if (!response.ok) {
+                const { message } = await response.json();
+                setAlertMessage(message || 'Login failed, please try again');
+                setShowAlert(true);
+                return;
+            }
+
+            const data = await response.json();
+            const { token, user } = data;
+
+            if (token) {
+                Auth.login(token);
+                setUserFormData({ email: '', password: '' });
+                navigate('/dashboard');
+            } else {
+                setAlertMessage('No token received, please try again.');
+                setShowAlert(true);
+            }
+        } catch (err) {
+            console.error(err);
+            setAlertMessage('Something went wrong. Please try again later');
+            setShowAlert(true);
+        }
+    };
 
     return (
         <>
@@ -26,7 +63,7 @@ export default function Login () {
                     {/* noValidate validated={validated} onSubmit={handleFormSubmit} */}
                     <Form>
                         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                            Something went wrong with your login credentials!
+                            {alertMessage}
                         </Alert>
                         <Form.Group className='form-group'>
                             <Form.Label htmlFor='email'>
@@ -61,6 +98,7 @@ export default function Login () {
                         <div className='text-center'>
                             <Button
                                 disabled={!(userFormData.email && userFormData.password)}
+                                onClick={handleFormSubmit}
                                 type='submit'
                                 className='btn btn-success w-50 rounded'
                             >

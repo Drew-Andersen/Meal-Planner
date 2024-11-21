@@ -7,11 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Import pages the router will use to conditionally show the appropriate views
 import App from './App.jsx';
-import Login from './pages/Login.jsx';
-import Home from './pages/Home.jsx';
-import Signup from './pages/Signup.jsx';
+import Login from './pages/login/Login.jsx';
+import Home from './pages/home/Home.jsx';
+import Signup from './pages/signup/Signup.jsx';
 import Error from './pages/Error.jsx';
-import Dashboard from './pages/Dashboard.jsx';
+import Dashboard from './pages/dashboard/Dashboard.jsx';
+import ProtectedRoute from './ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,12 +34,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard',
-        element: <Dashboard />
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        )
       }
     ]
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router} />
+  <RouterProvider router={router} />
 )

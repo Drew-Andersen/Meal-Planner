@@ -36,11 +36,11 @@ module.exports = {
             const foundUser = await User.findOne({
                 $or: [{ _id: user ? user._id : params.id }, { name: params.name }],
             });
-    
+
             if (!foundUser) {
                 return res.status(400).json({ message: 'Cannot find a user with this id!' });
             }
-    
+
             res.json(foundUser);
         } catch (err) {
             console.error('Error fetching user:', err);
@@ -51,12 +51,10 @@ module.exports = {
     // Login a user, sign a token, and send it back to the client
     async login({ body }, res) {
         try {
-            // Look for the user by either their name or email
             const user = await User.findOne({
                 $or: [{ name: body.name }, { email: body.email }]
             });
 
-            // If no user found, return a 400 response
             if (!user) {
                 return res.status(400).json({ message: "Can't find this user" });
             }
@@ -124,22 +122,22 @@ module.exports = {
             if (!user) {
                 return res.status(404).json({ message: 'User not found' });
             }
-    
+
             // Log the current entries before incrementing
             console.log('Current entries:', user.entries);  // returning undefined
-    
+
             // Initialize entries if not present
             user.entries = user.entries || 0;  // Ensure it's not null or undefined
-    
+
             // Increment entries by 1
             user.entries++;
-    
+
             // Log after incrementing
             console.log('Updated entries:', user.entries);  // Log after update
-    
+
             // Save the updated user
             await user.save();
-    
+
             // Send back the updated user object
             res.json({ entries: user.entries });
         } catch (err) {
