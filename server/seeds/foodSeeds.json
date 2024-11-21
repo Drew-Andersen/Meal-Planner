@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Large Eggs",
+        "servingSize": "1 egg",
+        "nutrition": {
+            "calories": 70,
+            "totalFat": 5,
+            "saturatedFat": 1.5,
+            "transFat": 0,
+            "cholesterol": 180,
+            "sodium": 70,
+            "carbohydrates": 0,
+            "fiber": 0,
+            "sugar": 0,
+            "addedSugar": 0,
+            "protein": 6
+        }
+    },
+    {
+        "name": "Fairlife 2% Milk",
+        "servingSize": "8oz",
+        "nutrition": {
+            "calories": 120,
+            "totalFat": 5,
+            "saturatedFat": 3,
+            "transFat": 0,
+            "cholesterol": 20,
+            "sodium": 120,
+            "carbohydrates": 6,
+            "fiber": 0,
+            "sugar": 6,
+            "addedSugar": 0,
+            "protein": 13
+        }
+    }
+]
