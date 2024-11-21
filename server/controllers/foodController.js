@@ -1,5 +1,3 @@
-// removeFood
-
 const { Food } = require('../models');
 
 module.exports = {
@@ -38,7 +36,7 @@ module.exports = {
     async getSingleFood({ food = null, params }, res) {
         try {
             const foundFood = await Food.findOne({
-                $or: [{ _id: food ? food._id : params.id }, { name: params.name }],
+                $or: [{ _id: params.foodId }, { name: params.foodId }],
             });
     
             if (!foundFood) {
@@ -54,7 +52,7 @@ module.exports = {
 
     async removeFood(req, res) {
         try {
-            const food = await Food.findOneAndRemove({ _id: req.params.foodId });
+            const food = await Food.findByIdAndDelete({ _id: req.params.foodId });
 
             if (!food) {
                 return res.status(404).json({ message: 'No food found with this id!' });

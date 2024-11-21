@@ -8,6 +8,8 @@ db.once('open', async () => {
     try {
         await cleanDB('User', 'users');
         await User.create(userSeeds);
+
+        await cleanDB('Food', 'foods');
         await Food.create(foodSeeds);
 
         console.log(`Finished cleaning and seeding the DB.`);

@@ -6,16 +6,12 @@ const {
     getUsers,
     removeUser,
 } = require('../../controllers/userController');
+const { authMiddleware } = require('../../utils/auth');
 
-//importing middleware
-const { authMiddleware } = require('../../utils.auth');
-
-//put authmiddleware anywhere we need to send a token for verification of the user
-router.route('/').post(createUser).put(authMiddleware);
-
-router.route('/login').post(login);
-router.route('/').get(getUsers);
-router.route('/:userId').delete(removeUser);
+router.route('/').post(createUser).put(authMiddleware); // works -- checked on Insomnia
+router.route('/login').post(login); // works -- checked on Insomnia
+router.route('/').get(getUsers); // works -- checked on Insomnia
+router.route('/:userId').delete(removeUser); // works -- checked on Insomnia
 router.route('/me').get(authMiddleware, getSingleUser);
 
 module.exports = router;

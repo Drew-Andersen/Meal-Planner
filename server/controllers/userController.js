@@ -101,7 +101,7 @@ module.exports = {
     async removeUser(req, res) {
         try {
             // Attempt to find and remove the user by their ID
-            const user = await User.findOneAndRemove({ _id: req.params.userId });
+            const user = await User.findByIdAndDelete({ _id: req.params.userId });
 
             // If no user found, return a 404 response
             if (!user) {

@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const {
-    getFoods,
-    createFood,
-    getSingleFood,
-    removeFood,
+    getFoods, // works -- checked on Insomnia
+    createFood, // works -- checked on Insomnia
+    getSingleFood, // works -- checked on Insomnia
+    removeFood, // works -- checked on Insomnia
 } = require('../../controllers/foodController');
 
 router.route('/').get(getFoods).post(createFood);
