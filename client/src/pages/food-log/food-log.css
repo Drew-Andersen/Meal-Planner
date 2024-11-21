@@ -1,0 +1,90 @@
+.cont {
+    max-width: 60%;
+}
+
+.flex {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.font15 {
+    font-size: 16px;
+}
+
+.arrow-btn {
+    color: white;
+    border: 2px solid white;
+    background-color: #415dd9;
+    transition: all .3s ease-in-out;
+}
+
+.left-arrow {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.right-arrow {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.arrow-btn:hover {
+    color: orange;
+    transform: scale(1.1);
+}
+
+.date-btn {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 0.5px solid white;
+    border-right: 0.5px solid white;
+    color: white;
+    background-color: #415dd9;
+    cursor:auto;
+    width: 275px;
+}
+
+.datepicker {
+    font-size: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+    color: #7b8197;
+    transition: all .3s ease-in-out;
+}
+
+.datepicker:hover {
+    color: #3554df;
+    transform: scale(1.1);
+}
+
+.horizontalLine {
+    border-top: 2px solid #d4d4d4;
+}
+
+@media only screen and (max-width: 850.1px) {
+    strong {
+        display: flex;
+        justify-content: center;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: center;
+    }
+
+    .font18 {
+        font-size: 15px;
+    }
+    
+    .font15 {
+        font-size: 13px;
+    }
+
+    .datepicker {
+        font-size: 15px;
+    }
+}

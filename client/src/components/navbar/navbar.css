@@ -62,7 +62,7 @@ li:hover {
 }
 
 /* ****************** @media ***************** */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
     .nav-custom {
         z-index: 99;
     }
@@ -107,7 +107,7 @@ li:hover {
     }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 850.1px) {
     .menu-icons {
         display: none;
     }

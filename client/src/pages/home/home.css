@@ -7,4 +7,9 @@
 .btn {
     border: 1px solid  black;
     font-size: 25px;
+    transition: all .3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
 }
