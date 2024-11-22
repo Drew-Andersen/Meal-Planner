@@ -65,6 +65,34 @@
     border-top: 2px solid #d4d4d4;
 }
 
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    width: 253px;
+    height: 500px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Datepicker Inline */
+.react-datepicker__triangle {
+    display: none; /* Hide the triangle pointer */
+}
+
 @media only screen and (max-width: 850.1px) {
     strong {
         display: flex;
