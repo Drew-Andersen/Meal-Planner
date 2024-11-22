@@ -20,7 +20,7 @@ export default function Navbar() {
         <nav className="nav-custom w-100 d-flex justify-content-between">
             <div className="logo-div">
                 <img src="src/images/Meal Planner.png" alt="Logo" className="logo"/>
-                <h1 className='px-4 pt-2'>Meal Planner</h1>
+                <h1 className='title px-4 pt-2'>Meal Planner</h1>
             </div>
             <div className="menu-icons" onClick={toggleMenu}>
                 <i className={isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>

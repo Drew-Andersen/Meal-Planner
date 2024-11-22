@@ -63,8 +63,18 @@ li:hover {
 
 /* ****************** @media ***************** */
 @media screen and (max-width: 850px) {
+    .title {
+        display: none;
+    }
+
     .nav-custom {
         z-index: 99;
+        padding: 0px 20px
+    }
+
+    .logo-div {
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     .menu-icons {

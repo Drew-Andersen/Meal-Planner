@@ -59,25 +59,25 @@ export default function FoodLog() {
 
     return (
         <>
-            <div className="m-auto cont">
-                <div className='flex'>
-                    <h4 className='font18'>
-                        <strong>Your Food Log For: </strong>
-                        <div className='flex font15'>
-                            <div className="arrow-btn left-arrow p-1 fa-solid fa-arrow-left" onClick={dateDec}></div>
-                            <div className='date-btn px-2 py-1 text-center'>{formatDate(date)}</div>
-                            <div className="arrow-btn right-arrow p-1 fa-solid fa-arrow-right" onClick={dateInc}></div>
-                            <i
-                                ref={datepickerRef}
-                                id='datepicker'
-                                className="datepicker p-1 fa-solid fa-calendar-days"
-                                onClick={toggleModal}
-                            ></i>
-                        </div>
-                    </h4>
+                <div className="m-auto cont">
+                    <div className='flex'>
+                        <h4 className='font18'>
+                            <strong>Your Food Log For: </strong>
+                            <div className='flex font15'>
+                                <div className="arrow-btn left-arrow p-1 fa-solid fa-arrow-left" onClick={dateDec}></div>
+                                <div className='date-btn px-2 py-1 text-center'>{formatDate(date)}</div>
+                                <div className="arrow-btn right-arrow p-1 fa-solid fa-arrow-right" onClick={dateInc}></div>
+                                <i
+                                    ref={datepickerRef}
+                                    id='datepicker'
+                                    className="datepicker p-1 fa-solid fa-calendar-days"
+                                    onClick={toggleModal}
+                                ></i>
+                            </div>
+                        </h4>
+                    </div>
+                    <div className="horizontalLine"></div>
                 </div>
-                <div className="horizontalLine"></div>
-            </div>
 
             {/* Modal for Date Picker */}
             {showModal && (
@@ -92,12 +92,12 @@ export default function FoodLog() {
                             left: `${modalPosition.left}px`,
                         }}
                     >
-                        <DatePicker 
-                            selected={date} 
+                        <DatePicker
+                            selected={date}
                             onChange={(date) => {
                                 setDate(date);
                                 setShowModal(false); // Close the modal when a date is selected
-                            }} 
+                            }}
                             inline
                         />
                     </div>
