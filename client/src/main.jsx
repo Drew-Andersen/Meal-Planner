@@ -14,6 +14,7 @@ import Error from './pages/Error.jsx';
 import Dashboard from './pages/dashboard/Dashboard.jsx';
 import FoodLog from './pages/food-log/Food-Log.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
+import AddFood from './pages/food-log/addFood/AddFood.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
         element : (
           <ProtectedRoute>
             <FoodLog />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: '/addFood',
+        element: (
+          <ProtectedRoute>
+            <AddFood />
           </ProtectedRoute>
         )
       }

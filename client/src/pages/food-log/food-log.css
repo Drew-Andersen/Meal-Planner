@@ -61,8 +61,73 @@
     transform: scale(1.1);
 }
 
+.gear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .horizontalLine {
     border-top: 2px solid #d4d4d4;
+}
+
+.fa-gear {
+    cursor: pointer;
+}
+
+.div {
+    display: grid;
+}
+
+.goalDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Div{
+    display: block;
+    padding: auto;
+    background-color: #415dd9;
+    color: white;
+    border: 1px solid #d4d4d4;
+}
+
+a {
+    text-decoration: none;
+}
+
+.font14 {
+    font-size: 12px;
+}
+
+.ml-4 {
+    margin-left: 1.5rem;
+}
+
+.horizontalLine1 {
+    border-top: 2px solid #d4d4d4;
+}
+
+.search-input {
+    padding: 2px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: inset -1px 0 .4em lightgray;
+    width: 50%;
+}
+
+.search {
+    margin-left: 5px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px;
+    background-color: #007622;
+    color: white;
+    transition: all .3s ease-in-out;
+}
+
+.search:hover {
+    transform: scale(1.1);
 }
 
 /* Modal Overlay */

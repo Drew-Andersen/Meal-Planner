@@ -9,9 +9,7 @@ function App() {
     <>
       <div className='background'>
         <Header />
-          <Link to='/settings' className='settings'>
-            <i className="px-2 py-3 fa-solid fa-gear"></i>
-          </Link>
+        <div className="mt-5"></div>
           <Outlet />
         <Footer className="footer mt-5" />
       </div>

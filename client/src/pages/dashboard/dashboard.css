@@ -31,8 +31,8 @@
 }
 
 .icon {
+    max-width: 150px;
     height: 100%;
-    width: 100%;
     max-width: 100%;
     border-radius: 50%;
     font-size: 55px;
@@ -54,7 +54,12 @@
     height: 150px;
 }
 
+.macro-progress-bar {
+    justify-content: space-around;
+}
+
 .CircularProgressbar {
+    max-width: 150px;
     width: 100%;
     height: 100%;
     /* width: 150px; */
