@@ -15,6 +15,7 @@ import Dashboard from './pages/dashboard/Dashboard.jsx';
 import FoodLog from './pages/food-log/Food-Log.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
 import AddFood from './pages/food-log/addFood/AddFood.jsx';
+import Search from './pages/food-log/addFood/search.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/food_log',
-        element : (
+        element: (
           <ProtectedRoute>
             <FoodLog />
           </ProtectedRoute>
@@ -55,6 +56,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <AddFood />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: '/search',
+        element: (
+          <ProtectedRoute>
+            <Search />
           </ProtectedRoute>
         )
       }

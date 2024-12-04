@@ -1,10 +1,17 @@
-import React from "react";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import '../food-log.css';
 
 export default function AddFood() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
+
     const handleSearch = () => {
-        // handle search function
         console.log('Search clicked');// -- working
+        if (searchQuery.trim()) {
+            // Navigate to the search results page with the query
+            navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+        }
     }
 
     return (
@@ -23,7 +30,12 @@ export default function AddFood() {
                 <div className="mt-1 p-1">
                     <strong>Search our food database by name: </strong>
                     <div>
-                        <input className="search-input" type="text" />
+                        <input 
+                            className="search-input" 
+                            type="text" 
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
                         <button className="px-4 search" onClick={handleSearch}>Search</button>
                     </div>
                 </div>

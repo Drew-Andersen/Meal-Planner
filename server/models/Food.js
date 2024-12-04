@@ -11,6 +11,10 @@ const foodSchema = new Schema(
             type: String,
             required: true,
         },
+        keyWord: {
+            type: String,
+            required: true,
+        },
         nutrition: {
             calories: {
                 type: Number,

@@ -47,3 +47,13 @@ export const loginUser = async (userData) => {
         throw err;
     }
 };
+
+export const getFoods = async () => {
+    const data = await fetch('http://localhost:3001/api/foods', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    return data;
+}

@@ -2,6 +2,7 @@
     {
         "name": "Large Eggs",
         "servingSize": "1 egg",
+        "keyWord": "eggs",
         "nutrition": {
             "calories": 70,
             "totalFat": 5,
@@ -19,6 +20,7 @@
     {
         "name": "Fairlife 2% Milk",
         "servingSize": "8oz",
+        "keyWord": "milk",
         "nutrition": {
             "calories": 120,
             "totalFat": 5,

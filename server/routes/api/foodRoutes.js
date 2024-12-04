@@ -9,4 +9,4 @@ const {
 router.route('/').get(getFoods).post(createFood);
 router.route('/:foodId').get(getSingleFood).delete(removeFood);
 
-module.exports = router;
+module.exports = router; 
