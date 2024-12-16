@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -5,22 +6,18 @@ module.exports = {
     // Create a user, sign a token, and send it back to the client
     async createUser({ body }, res) {
         try {
-            // Log the body to debug the data being received
-            console.log('User creation data:', body);
-
             // Create a new user
             const user = await User.create(body);
-
-            // If user creation fails, return a 400 response
+    
             if (!user) {
                 return res.status(400).json({ message: 'Something went wrong during user creation.' });
             }
-
+    
             // Create a token for the new user
             const token = signToken(user);
             console.log('User created:', user);
             console.log('Generated token:', token);
-
+    
             // Return the token and user data
             res.json({ token, user });
         } catch (err) {

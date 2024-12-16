@@ -10,7 +10,6 @@ export const getMe = (token) => {
 
 export const createUser = async (userData) => {
     try {
-        // /api/users
         const response = await fetch('http://localhost:3001/api/users', {
             method: 'POST',
             headers: {
@@ -19,15 +18,18 @@ export const createUser = async (userData) => {
             body: JSON.stringify(userData),
         });
 
+        console.log('Response from server:', response);  // Debug the response object
+
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.message || "Signup failed, please try again.");
+            throw new Error(errorData.message || 'Signup failed, please try again.');
         }
 
-        return response.json();
+        // Return the response object (for use in .json() in the Signup component)
+        return response;
     } catch (err) {
-        console.log(err);
-        throw err;
+        console.error('Error creating user:', err);
+        throw err;  // Rethrow error for handling in the Signup component
     }
 };
 
