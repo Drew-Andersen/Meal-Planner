@@ -4,13 +4,14 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../utils/API';
 import Auth from '../../utils/auth';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 import './login.css';
 
-export default function Login () {
+export default function Login() {
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-    // const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState(false); 
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -59,8 +60,7 @@ export default function Login () {
         <>
             <div className='d-flex justify-content-center align-items-center mt-5'>
                 <div className="form-div">
-                    <h2 className='text-center mb-4'>Login</h2> 
-                    {/* noValidate validated={validated} onSubmit={handleFormSubmit} */}
+                    <h2 className='text-center mb-4'>Login</h2>
                     <Form>
                         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
                             {alertMessage}
@@ -69,7 +69,7 @@ export default function Login () {
                             <Form.Label htmlFor='email'>
                                 <strong>Email</strong>
                             </Form.Label>
-                            <Form.Control 
+                            <Form.Control
                                 type='email'
                                 placeholder='Enter your email'
                                 onChange={handleInputChange}
@@ -84,15 +84,24 @@ export default function Login () {
                             <Form.Label htmlFor='password'>
                                 <strong>Password</strong>
                             </Form.Label>
-                            <Form.Control 
-                                type='password'
-                                placeholder='Enter your password'
-                                onChange={handleInputChange}
-                                name='password'
-                                value={userFormData.password}
-                                className='form-control rounded'
-                                required
-                            />
+                            <div className="password-input-container">
+                                <Form.Control
+                                    type={passwordVisible ? 'text' : 'password'} 
+                                    placeholder='Enter your password'
+                                    onChange={handleInputChange}
+                                    name='password'
+                                    value={userFormData.password}
+                                    className='form-control rounded'
+                                    required
+                                />
+                                <div
+                                    variant="link"
+                                    onClick={() => setPasswordVisible(!passwordVisible)} 
+                                    className="password-toggle-btn"
+                                >
+                                    {passwordVisible ? <FaEyeSlash /> : <FaEye />} 
+                                </div>
+                            </div>
                         </Form.Group>
 
                         <div className='text-center'>
@@ -108,11 +117,13 @@ export default function Login () {
 
                         <div className="text-center">
                             <p className="text-center mb-0 mt-3">Don't have an account?</p>
-                            <Link to='/signup'><Button className='btn btn-primary border w-50 rounded text-decoration-none'>Sign-up</Button>{' '}</Link>
+                            <Link to='/signup'>
+                                <Button className='btn btn-primary border w-50 rounded text-decoration-none'>Sign-up</Button>
+                            </Link>
                         </div>
                     </Form>
                 </div>
             </div>
         </>
-    )
+    );
 }

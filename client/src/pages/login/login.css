@@ -9,6 +9,22 @@
     margin-bottom: 1rem;
 }
 
+.password-input-container {
+    position: relative;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
     .form-div {
         width: 350px;
