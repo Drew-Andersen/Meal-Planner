@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 export default function Signup () {
-    const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-    // const [validated] = useState(false);
+    const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
     const [showAlert, setShowAlert] = useState(false);
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -14,7 +15,8 @@ export default function Signup () {
     };
 
     // const handleFormSubmit = async (e) => {
-
+    //     e.preventDefault();
+    //     // Add form submission logic here
     // }
 
     return (
@@ -22,11 +24,11 @@ export default function Signup () {
             <div className='d-flex justify-content-center align-items-center mt-5'>
                 <div className="form-div">
                     <h2 className='text-center mb-4'>Sign-Up</h2> 
-                    {/* noValidate validated={validated} onSubmit={handleFormSubmit} */}
                     <Form>
                         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                            Something went wrong with your login credentials!
+                            Something went wrong with your signup credentials!
                         </Alert>
+
                         <Form.Group className='form-group'>
                             <Form.Label htmlFor='username'>
                                 <strong>Username</strong>
@@ -56,22 +58,31 @@ export default function Signup () {
                                 className='form-control rounded'
                                 required
                             />
-                            <Form.Control.Feedback type='invalid'>Eamil is required!</Form.Control.Feedback>
+                            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group className='form-group'>
                             <Form.Label htmlFor='password'>
                                 <strong>Password</strong>
                             </Form.Label>
-                            <Form.Control 
-                                type='password'
-                                placeholder='Enter your password'
-                                onChange={handleInputChange}
-                                name='password'
-                                value={userFormData.password}
-                                className='form-control rounded'
-                                required
-                            />
+                            <div className="password-input-container">
+                                <Form.Control 
+                                    type={passwordVisible ? 'text' : 'password'} 
+                                    placeholder='Enter your password'
+                                    onChange={handleInputChange}
+                                    name='password'
+                                    value={userFormData.password}
+                                    className='form-control rounded'
+                                    required
+                                />
+                                <div
+                                    variant="link"
+                                    onClick={() => setPasswordVisible(!passwordVisible)} 
+                                    className="password-toggle-btn"
+                                >
+                                    {passwordVisible ? <FaEyeSlash /> : <FaEye />} 
+                                </div>
+                            </div>
                             <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                         </Form.Group>
 
@@ -87,11 +98,15 @@ export default function Signup () {
 
                         <div className="text-center">
                             <p className="text-center mb-0 mt-3">Already have an account?</p>
-                            <Link to='/login'><Button className='btn btn-primary border w-50 rounded text-decoration-none'>Login</Button>{' '}</Link>
+                            <Link to='/login'>
+                                <Button className='btn btn-primary border w-50 rounded text-decoration-none'>
+                                    Login
+                                </Button>
+                            </Link>
                         </div>
                     </Form>
                 </div>
             </div>
         </>
-    )
+    );
 }
