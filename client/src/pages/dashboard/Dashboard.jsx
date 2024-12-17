@@ -6,7 +6,6 @@ import { getMe } from '../../utils/API';
 export default function Dashboard() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);  
-    console.log(user);
         
     useEffect(() => {
         const fetchUserData = async () => {
@@ -33,6 +32,8 @@ export default function Dashboard() {
     if (loading) {
         return <div>Loading...</div>; 
     }
+
+    console.log(user); 
 
     return (
         <>

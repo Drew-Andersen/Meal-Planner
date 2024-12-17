@@ -1,0 +1,46 @@
+.search-results {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.foods-grid {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.food-card {
+    border: 1px solid black;
+    margin: 0.5% 10%;
+    border-radius: 5px;
+}
+
+.food-name {
+    margin-left: 2%;
+}
+
+.info-div {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.add-to-log-btn {
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.create-food-card {
+    display: flex;
+    align-items: center;
+    margin: 0.5% 10%;
+    justify-content: space-between;
+}
+
+.create-food-btn {
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+}
