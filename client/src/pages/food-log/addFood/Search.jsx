@@ -27,6 +27,10 @@ export default function Search() {
         }
     };
 
+    const handleAddFoodToLog = () => {
+        // adds food to the log
+    }
+
     return (
         <div className="search-results">
             <h2>Search Results for "{query}"</h2>

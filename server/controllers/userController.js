@@ -27,7 +27,7 @@ module.exports = {
     },
 
     // Get a single user by either their id or their name
-    async getSingleUser({ user = null, params }, res) {
+    async getSingleUser({ user = null, params }, res) { 
         try {
             // Find the user by either their _id or name
             const foundUser = await User.findOne({

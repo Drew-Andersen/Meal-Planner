@@ -1,10 +1,42 @@
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import './dashboard.css';
+import { useState, useEffect } from 'react';
+import { getMe } from '../../utils/API';
 
 export default function Dashboard() {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);  
+    console.log(user);
+        
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const token = localStorage.getItem('id_token');
+                const response = await getMe(token);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    setUser(data);
+                } else {
+                    console.error('Failed to fetch user data');
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            } finally {
+                setLoading(false); 
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>; 
+    }
+
     return (
         <>
-            <h1 className="container text-center">(User.name) Dashboard</h1>
+            <h1 className="container text-center">{user ? `${user.name}'s Dashboard` : 'Loading...'}</h1>
             <div className="buffer">
                 <div className="row goals d-flex">
                     <div className="card px-2 py-2 col-lg-5 col-sm-12 my-3">
