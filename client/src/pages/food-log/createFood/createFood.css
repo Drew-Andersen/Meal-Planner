@@ -1,0 +1,14 @@
+.create-food-form-div {
+    width: 50%;
+    border: 1px solid gray;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.label {
+    width: 50%;
+}
+
+.select-form {
+    width: 12%;
+}

@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import '../food-log.css';
 
-
 export default function AddFood() {
     const [searchQuery, setSearchQuery] = useState('');
     const navigate = useNavigate();
@@ -12,6 +11,12 @@ export default function AddFood() {
         if (searchQuery.trim()) {
             navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
         }
+    }
+
+    const handleCreateFood = () => {
+        // create food
+        console.log('Create food Clicked');
+        navigate('/createFood');
     }
 
     return (
@@ -38,6 +43,12 @@ export default function AddFood() {
                         />
                         <button className="px-4 search" onClick={handleSearch}>Search</button>
                     </div>
+                </div>
+                <div className='mt-2 horizontalLine'></div>
+                <div className='my-2 create-food-card'>
+                    {/* When create food is clicked ... have a modal pop-up to create a new food */}
+                    <h6>You can also create a new food.</h6>
+                    <button className='btn btn-primary create-food-btn' onClick={handleCreateFood}>Create Food</button>
                 </div>
             </div>
         </>
